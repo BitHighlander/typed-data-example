@@ -5,20 +5,10 @@ import {
   Text,
   Select,
   useDisclosure,
-  Modal,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
 } from "@chakra-ui/react";
 import { ethers } from "ethers";
 import {
   usePioneer,
-  AssetSelect,
-  BlockchainSelect,
-  WalletSelect,
   // @ts-ignore
 } from "@pioneer-platform/pioneer-react";
 import { EXAMPLE_TX_OPENSEA, EXAMPLE_TX_UNISWAP } from "./data";
@@ -104,10 +94,14 @@ const Home = () => {
       {" "}
       <div>
         <p>
-          <h2><a href="https://eips.ethereum.org/EIPS/eip-712">Spec: EIP-712: {" "}LINK</a></h2>
+          <h2>
+            <a href="https://eips.ethereum.org/EIPS/eip-712">
+              Spec: EIP-712: LINK
+            </a>
+          </h2>
         </p>
       </div>
-      <br/>
+      <br />
       <Box borderWidth="1px" borderRadius="lg" p={4} marginBottom={4}>
         <Text>Context: {context}</Text>
         <Text as="h1" fontSize="2xl">
@@ -115,6 +109,7 @@ const Home = () => {
         </Text>
       </Box>
       <Select
+        //@ts-ignore
         value={selectedExampleTx === EXAMPLE_TX_OPENSEA ? "opensea" : "uniswap"}
         onChange={handleExampleTxSelect}
         marginBottom={4}

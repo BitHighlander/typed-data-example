@@ -2787,10 +2787,10 @@
     ts-node "^8.10.2"
     typescript "^5.0.2"
 
-"@pioneer-platform/pioneer-react@0.2.36":
-  version "0.2.36"
-  resolved "https://registry.yarnpkg.com/@pioneer-platform/pioneer-react/-/pioneer-react-0.2.36.tgz#db6a03d74679a0a4136fe6eb843a504d31df424b"
-  integrity sha512-jVNbjFM6fvop5cClvJHvwEo5XSN0CqAb5NhpsXbDrASKQTYsCmloYY6BkTiux15Puqyx/ZmsoI2DfDIV6sEYTA==
+"@pioneer-platform/pioneer-react@0.2.38":
+  version "0.2.38"
+  resolved "https://registry.yarnpkg.com/@pioneer-platform/pioneer-react/-/pioneer-react-0.2.38.tgz#89ac333f96c9ad1e12f83f708f63a3267348b980"
+  integrity sha512-7NVJKm0NS5XYWpbfghrSgTyp5ibzNcvpwc2vQHouHVV0J+qV9nBW0uYOq0LB39RIFb3GCbKMZ+vI8DzTYgMvuA==
   dependencies:
     "@chakra-ui/icons" "^2.0.19"
     "@chakra-ui/react" "^2.6.0"

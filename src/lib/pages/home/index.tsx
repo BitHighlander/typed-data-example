@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
-import {
-  Button,
-  Box,
-  Text,
-  Select,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { Button, Box, Text, Select, useDisclosure } from "@chakra-ui/react";
 import { ethers } from "ethers";
 import {
   usePioneer,
   // @ts-ignore
 } from "@pioneer-platform/pioneer-react";
-import { EXAMPLE_TX_OPENSEA, EXAMPLE_TX_UNISWAP } from "./data";
+import {
+  EXAMPLE_TX_OPENSEA,
+  EXAMPLE_TX_UNISWAP,
+  EXAMPLE_TX_HDWALLET,
+} from "./data";
 
 const Home = () => {
   const { state } = usePioneer();
@@ -78,13 +76,35 @@ const Home = () => {
     }
   };
 
-  const handleExampleTxSelect = (event: { target: { value: any } }) => {
+  const getSelectedValue = (selectedTx:any) => {
+    console.log()
+    switch (selectedTx) {
+      case EXAMPLE_TX_OPENSEA:
+        return "opensea";
+      case EXAMPLE_TX_UNISWAP:
+        return "uniswap";
+      case EXAMPLE_TX_HDWALLET:
+        return "hdwallet";
+      default:
+        return "";
+    }
+  };
+
+  const handleExampleTxSelect = (event) => {
     const selectedValue = event.target.value;
-    if (selectedValue === "opensea") {
-      // @ts-ignore
-      setSelectedExampleTx(EXAMPLE_TX_OPENSEA);
-    } else {
-      setSelectedExampleTx(EXAMPLE_TX_UNISWAP);
+    switch (selectedValue) {
+      case "opensea":
+        setSelectedExampleTx(EXAMPLE_TX_OPENSEA);
+        break;
+      case "uniswap":
+        setSelectedExampleTx(EXAMPLE_TX_UNISWAP);
+        break;
+      case "hdwallet":
+        setSelectedExampleTx(EXAMPLE_TX_HDWALLET); // Add this case
+        break;
+      default:
+        // Handle the default case if needed
+        break;
     }
   };
 
@@ -109,13 +129,14 @@ const Home = () => {
         </Text>
       </Box>
       <Select
-        //@ts-ignore
-        value={selectedExampleTx === EXAMPLE_TX_OPENSEA ? "opensea" : "uniswap"}
-        onChange={handleExampleTxSelect}
-        marginBottom={4}
+          //@ts-ignore
+          value={getSelectedValue(selectedExampleTx)}
+          onChange={handleExampleTxSelect}
+          marginBottom={4}
       >
         <option value="opensea">OpenSea Example Tx</option>
         <option value="uniswap">Uniswap Example Tx</option>
+        <option value="hdwallet">HD Wallet Example Tx</option>
       </Select>
       <Box borderWidth="1px" borderRadius="lg" p={4} marginBottom={4}>
         <Text fontSize="xl">Transaction:</Text>
